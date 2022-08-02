@@ -18,14 +18,14 @@ class Game
             self.print_board(@board.render)
 
             puts "please enter the position"
-            user_input = gets.chomp.split("")
+            user_input = gets.chomp.split(" ")
             user_input.map! { |ele| ele.to_i }
             first_guessed = @board.reveal(user_input)
 
             self.print_board(@board.render)
 
             puts "please enter second position"
-            user_input_2 = gets.chomp.split("")
+            user_input_2 = gets.chomp.split(" ")
             user_input_2.map! { |ele| ele.to_i }
             second_guessed = @board.reveal(user_input_2)
 
