@@ -61,5 +61,11 @@ class Board
         if !card.face_up
             card.reveal
         end
+
+        return card
+    end
+
+    def get_num_guessed_pos
+        @grid.flatten.count { |card| card.face_up == true }
     end
 end 
