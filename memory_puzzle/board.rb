@@ -29,11 +29,11 @@ class Board
     def render
         board_current_state = Array.new(4) {Array.new(4)}
         @grid.each_with_index do |sub, idx1|
-            @grid.each_with_index do |ele, idx2|
+            sub.each_with_index do |ele, idx2|
                 if ele.face_up 
                     board_current_state[idx1][idx2] = ele.value
                 else
-                    board_current_state[idx1][idx2] = " " 
+                    board_current_state[idx1][idx2] = "_" 
                 end
             end
         end
@@ -55,9 +55,9 @@ class Board
     end
 
     def reveal(guessed_pos)
-        row, col = guess_pos
+        row, col = guessed_pos
         card = @grid[row][col]
-        
+
         if !card.face_up
             card.reveal
         end
